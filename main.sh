@@ -12,12 +12,23 @@ function create_student {
     echo "$student_id,$student_email,$student_age" >> $FILE
     echo "Student record created."
 }
+function view_students {
+    if [[ -f $FILE ]]; then
+        echo "Listing all students:"
+        cat $FILE
+    else
+        echo "No student records found."
+    fi
+}
+
 while true; do
     echo " ===== ALU registration system ====:"
     echo "1. Register a student record"
+    echo "2. List of SE cohort of students"
     read operation
     case $operation in
         1) create_student ;;
+	2) view_students ;;
         *) echo "Invalid option. Please try again." ;;
     esac
 done
