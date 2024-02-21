@@ -7,8 +7,8 @@ function create_student {
     echo ""
     echo -n "Enter student ID: "
     read student_id
-    # Check if the student ID already exists in the file
-    if grep -q "^$student_id," "$FILE"; then
+        # Check if the student ID already exists in the file, suppressing the error message if the file does not exist
+    if grep -q "^$student_id," "$FILE" 2>/dev/null; then
         echo ""
         echo "Error: Student ID $student_id is already taken. Try another one....."
         return # Exit the function if the ID exists
@@ -31,6 +31,7 @@ function view_students {
         echo "-----------------------"
         cat $FILE
     else
+        echo ""
         echo "No student records found."
     fi
 }
