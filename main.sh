@@ -25,7 +25,7 @@ function create_student {
 
 # Function to view a list of all students on the terminal
 function view_students {
-    if [[ -f $FILE ]]; then
+    if [[ -f $FILE ]] && [[ -s $FILE ]]; then
         echo ""
         echo "Listing all students:"
         echo "-----------------------"
