@@ -5,5 +5,3 @@
 5,walid@gmail.com,22
 6,blessinghirwa@gmail.com,19
 7,gustave@gmail.com,18
-8,jacque@gmail.com,18
-9,irembo@gmail.com,30

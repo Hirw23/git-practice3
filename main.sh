@@ -10,7 +10,7 @@ function create_student {
     # Check if the student ID already exists in the file
     if grep -q "^$student_id," "$FILE"; then
         echo ""
-        echo "Error: Student ID $student_id already exists. Try another one....."
+        echo "Error: Student ID $student_id is already taken. Try another one....."
         return # Exit the function if the ID exists
     fi
     echo -n "Enter student Email: "
@@ -20,7 +20,7 @@ function create_student {
     # Append the new student record to the file
     echo "$student_id,$student_email,$student_age" >> $FILE
     echo ""
-    echo "Student record created successfully."
+    echo "Success: Student record created."
 }
 
 # Function to view a list of all students on the terminal
@@ -39,9 +39,16 @@ function view_students {
 function delete_student {
     echo -n "Enter student ID to delete: "
     read student_id
+    # Check if the student ID exists in the file
+    if ! grep -q "^$student_id," "$FILE"; then
+        echo ""
+        echo "Error: Student with ID $student_id does not exist."
+        return # Exit the function if the ID does not exist
+    fi
+    # If the ID exists, proceed with deletion
     grep -v "^$student_id," $FILE > temp_file && mv temp_file $FILE
     echo ""
-    echo "Student record deleted."
+    echo "Success: Student record deleted."
 }
 
 # Function to update a students details using their id too
