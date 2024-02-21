@@ -49,7 +49,7 @@ Update a student: Update the details of an existing student.
 Exit: Close the program.
 Simply choose an option by entering the corresponding number and follow the prompts to manage the student records.
 
-# Student Email Extraction and Sorting Script
+# Student Email Extraction and Sorting
 
 This repository also contains a script designed to extract and sort the email addresses of students from a student records file. The script processes records stored in a specified format (id,email,age), extracts the email addresses, sorts them alphabetically, and saves the sorted list to a new file.
 
