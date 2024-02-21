@@ -8,6 +8,12 @@ FILE="students-list_1023.txt"
 # The file where sorted emails will be saved.
 EXTRACTED_EMAIL_FILE="student-emails.txt"
 
+ # Check if the students-list_1023.txt file itself does not exist or is empty
+    if [ ! -f "$FILE" ] || [ ! -s "$FILE" ]; then
+        echo ""
+        echo "Error: No student records found to exract emails from."
+        echo ""
+else
 # Informing the user about the start of the process.
 echo "Starting to extract and sort student email addresses from $FILE..."
 
@@ -18,4 +24,5 @@ cut -d ',' -f 2 "$FILE" | sort > "$EXTRACTED_EMAIL_FILE"
 
 # Letting the user know the process is complete and where to find the sorted emails.
 echo "Emails extracted Sccessfully. Check the sorted list in $EXTRACTED_EMAIL_FILE. file"
+fi
 
