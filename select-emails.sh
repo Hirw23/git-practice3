@@ -12,7 +12,7 @@ EXTRACTED_EMAIL_FILE="student-emails.txt"
 echo "Starting to extract and sort student email addresses from $FILE..."
 
 # Extracting email addresses and sorting them.
-# - We look at the second column in each record assuming the format is: ID,Email,Age
+# - We look at the second column in each record assuming the format is: id,email,age
 # - Then, we sort these emails alphabetically and save them to a new file.
 cut -d ',' -f 2 "$FILE" | sort > "$EXTRACTED_EMAIL_FILE"
 
