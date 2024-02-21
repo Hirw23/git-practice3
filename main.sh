@@ -4,20 +4,31 @@ FILE="students-list_1023.txt"
 
 # Function to register a student
 function create_student {
+    echo ""
     echo -n "Enter student ID: "
     read student_id
+    # Check if the student ID already exists in the file
+    if grep -q "^$student_id," "$FILE"; then
+        echo ""
+        echo "Error: Student ID $student_id already exists. Try another one....."
+        return # Exit the function if the ID exists
+    fi
     echo -n "Enter student Email: "
     read student_email
     echo -n "Enter student Age: "
     read student_age
+    # Append the new student record to the file
     echo "$student_id,$student_email,$student_age" >> $FILE
-    echo "Student record created."
+    echo ""
+    echo "Student record created successfully."
 }
 
 # Function to view a list of all students on the terminal
 function view_students {
     if [[ -f $FILE ]]; then
+        echo ""
         echo "Listing all students:"
+        echo "-----------------------"
         cat $FILE
     else
         echo "No student records found."
@@ -29,6 +40,7 @@ function delete_student {
     echo -n "Enter student ID to delete: "
     read student_id
     grep -v "^$student_id," $FILE > temp_file && mv temp_file $FILE
+    echo ""
     echo "Student record deleted."
 }
 
@@ -43,12 +55,14 @@ function update_student {
     read student_age
     echo "$student_id,$student_email,$student_age" >> temp_file
     mv temp_file $FILE
+    echo ""
     echo "Student record updated."
 }
 
 # Function to exit from the program
 function exit_application {
         echo "Exiting the program......"
+        echo ""
         exit 0
     }
 
@@ -64,8 +78,8 @@ while true; do
     echo "3. Delete a student"
     echo "4. Update a student"
     echo "5. Exit"
-    echo ""
-    read operation
+    echo "-----------------------------------------------------"
+    read -p "Type your choice here: " operation
     case $operation in
     1) create_student ;;
 	2) view_students ;;
