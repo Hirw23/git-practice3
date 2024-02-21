@@ -48,3 +48,41 @@ Delete a student: Remove a student's record using their ID.
 Update a student: Update the details of an existing student.
 Exit: Close the program.
 Simply choose an option by entering the corresponding number and follow the prompts to manage the student records.
+
+# Student Email Extraction and Sorting Script
+
+This repository also contains a script designed to extract and sort the email addresses of students from a student records file. The script processes records stored in a specified format (id,email,age), extracts the email addresses, sorts them alphabetically, and saves the sorted list to a new file.
+
+## Overview
+
+The `select-emails.sh` script is a simple yet powerful tool for managing student email addresses. It reads from a file containing student records, extracts the emails, sorts them, and outputs the result to a separate file. This can be particularly useful for educational institutions, course administrators, or anyone managing student data.
+
+### Setup
+
+To use the script, first, ensure you have a file named `students-list_1023.txt` in the same directory as the script, containing student records in the format of `id,email,age`.
+
+### Make the Script Executable
+
+Before running the script, make it executable:
+
+```bash
+chmod +x select-emails.sh
+```
+
+### Execute the Script
+
+Run the script by typing:
+
+```bash
+./select-emails.sh
+```
+
+The script will automatically read the students-list_1023.txt file, extract and sort the emails, and save them to student-emails.txt.
+
+### Output
+
+After successful execution, the script will notify you that the emails have been extracted and sorted. You can find the sorted email addresses in the student-emails.txt file within the same directory.
+
+### License
+
+This project is licensed under the MIT License. See the LICENSE file in the repository for more details.
