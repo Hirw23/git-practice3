@@ -82,7 +82,3 @@ The script will automatically read the students-list_1023.txt file, extract and 
 ### Output
 
 After successful execution, the script will notify you that the emails have been extracted and sorted. You can find the sorted email addresses in the student-emails.txt file within the same directory.
-
-### License
-
-This project is licensed under the MIT License. See the LICENSE file in the repository for more details.
