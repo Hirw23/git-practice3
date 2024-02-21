@@ -40,6 +40,12 @@ function view_students {
 function delete_student {
     echo -n "Enter student ID to delete: "
     read student_id
+     # Check if the file itself does not exist or is empty
+    if [ ! -f "$FILE" ] || [ ! -s "$FILE" ]; then
+        echo ""
+        echo "Error: No student records found at all."
+        return # Exit the function since there are no records to check
+    fi
     # Check if the student ID exists in the file
     if ! grep -q "^$student_id," "$FILE"; then
         echo ""
@@ -56,6 +62,12 @@ function delete_student {
 function update_student {
     echo -n "Enter student ID to update: "
     read student_id
+     # Check if the file itself does not exist or is empty
+    if [ ! -f "$FILE" ] || [ ! -s "$FILE" ]; then
+        echo ""
+        echo "Error: No student records found at all."
+        return # Exit the function since there are no records to check
+    fi
     # Check if the student ID exists in the file
     if ! grep -q "^$student_id," "$FILE"; then
         echo ""
