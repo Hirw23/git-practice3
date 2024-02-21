@@ -56,6 +56,13 @@ function delete_student {
 function update_student {
     echo -n "Enter student ID to update: "
     read student_id
+    # Check if the student ID exists in the file
+    if ! grep -q "^$student_id," "$FILE"; then
+        echo ""
+        echo "Error: Student with ID $student_id does not exist."
+        return # Exit the function if the ID does not exist
+    fi
+    # If the ID exists, proceed with updating
     grep -v "^$student_id," $FILE > temp_file
     echo -n "Enter new student Email: "
     read student_email
